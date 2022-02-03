@@ -1,1 +1,1 @@
-web: gunicorn academico.wsgi --log-file -
+web: gunicorn inst_ensino.wsgi --log-file -
