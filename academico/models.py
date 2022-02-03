@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Pessoa(models.Model):
     cpf = models.CharField(max_length=14)
@@ -19,7 +20,11 @@ class Professor(Pessoa):
     registro_funcional = models.CharField(max_length=10)
 
 class Aluno(Pessoa):
-    pass
+
+    """ Retorna a URL para acessar os detalhes deste aluno. """
+    def get_absolute_url(self):
+        return reverse('aluno-detalhes', args=[str(self.id)])
+
 
 class Disciplina(models.Model):
     professor = models.ForeignKey(Professor, on_delete=models.RESTRICT)

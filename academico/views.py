@@ -27,3 +27,7 @@ def index(request):
 class AlunoListView(generic.ListView):
 
     model = Aluno
+
+class AlunoDetailView(generic.DetailView):
+
+    model = Aluno

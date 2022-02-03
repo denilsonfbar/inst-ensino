@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Nome: {{ aluno.nome }}</h1>
+    <p><strong>CPF:</strong> {{ aluno.cpf }}</p>
+    <p><strong>Data de nascimento:</strong> {{ aluno.data_nascimento }}</p>
+
+    <h3>Endereços:</h3>
+        {% for endereco in aluno.endereco_set.all %} 
+            <p><strong>Logradouro:</strong> {{ endereco.logradouro }}</p>
+            <p><strong>Cidade:</strong> {{ endereco.cidade }}</p>
+            <br>
+        {% endfor %}</p>
+{% endblock %}
