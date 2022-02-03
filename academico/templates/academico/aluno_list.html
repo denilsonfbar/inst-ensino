@@ -4,11 +4,14 @@
 
     {% if aluno_list %}
         <h1>Lista de Alunos</h1>
+        <a href="{% url 'aluno-create' %}"> Cadastrar aluno</a>
         <ul>
             {% for aluno in aluno_list %}
                 <li>
                     <a href="{{ aluno.get_absolute_url }}">
                         {{aluno.nome}}
+                        <a href="{% url 'aluno-update' aluno.id%}"> - Atualizar</a>
+                        <a href="{% url 'aluno-delete' aluno.id%}"> - Excluir</a>
                     </a>
                 </li>
             {% endfor %}

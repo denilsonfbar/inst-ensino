@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from academico.models import Pessoa, Endereco, Professor, Aluno, Disciplina, Curso, Matricula
 
 def index(request):
@@ -29,5 +30,19 @@ class AlunoListView(generic.ListView):
     model = Aluno
 
 class AlunoDetailView(generic.DetailView):
+
+    model = Aluno
+
+class AlunoCreate(CreateView):
+   
+    model = Aluno
+    fields = '__all__'
+
+class AlunoUpdate(UpdateView):
+
+    model = Aluno
+    fields = ['nome', 'cpf', 'data_nascimento']
+
+class AlunoDelete(DeleteView):
 
     model = Aluno
