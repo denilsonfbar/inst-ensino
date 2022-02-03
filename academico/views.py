@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from academico.models import Pessoa, Endereco, Professor, Aluno, Disciplina, Curso, Matricula
 
 def index(request):
@@ -33,16 +34,19 @@ class AlunoDetailView(generic.DetailView):
 
     model = Aluno
 
-class AlunoCreate(CreateView):
-   
+class AlunoCreate(PermissionRequiredMixin, CreateView):
+    
+    permission_required = 'academico.pode_manipular_aluno'
     model = Aluno
     fields = '__all__'
 
-class AlunoUpdate(UpdateView):
+class AlunoUpdate(PermissionRequiredMixin, UpdateView):
 
+    permission_required = 'academico.pode_manipular_aluno'
     model = Aluno
     fields = ['nome', 'cpf', 'data_nascimento']
 
-class AlunoDelete(DeleteView):
+class AlunoDelete(PermissionRequiredMixin, DeleteView):
 
+    permission_required = 'academico.pode_manipular_aluno'
     model = Aluno

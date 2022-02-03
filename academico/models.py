@@ -21,6 +21,9 @@ class Professor(Pessoa):
 
 class Aluno(Pessoa):
 
+    class Meta:
+        permissions = (("pode_manipular_aluno", "Manipula o cadastro de alunos."),)
+
     """ Retorna a URL para acessar os detalhes deste aluno. """
     def get_absolute_url(self):
         return reverse('aluno-detalhes', args=[str(self.id)])
