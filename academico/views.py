@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 from academico.models import Pessoa, Endereco, Professor, Aluno, Disciplina, Curso, Matricula
 
 def index(request):
@@ -22,3 +23,7 @@ def index(request):
 
     # Renderizando o template index.html com os dados da variável contexto:
     return render(request, 'index.html', context=contexto)
+
+class AlunoListView(generic.ListView):
+
+    model = Aluno

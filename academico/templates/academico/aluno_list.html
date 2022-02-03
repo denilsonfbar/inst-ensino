@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if aluno_list %}
+        <h1>Lista de Alunos</h1>
+        <ul>
+            {% for aluno in aluno_list %}
+                <li>
+                    {{aluno.nome}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não existem alunos cadastrados.</p>
+    {% endif %}
+{% endblock %}
