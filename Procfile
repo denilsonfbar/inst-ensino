@@ -1,1 +1,1 @@
-web: gunicorn biblioteca.wsgi --log-file -
+web: gunicorn academico.wsgi --log-file -
