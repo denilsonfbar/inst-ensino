@@ -2,9 +2,9 @@
 
 {% block content %}
 
+    <h1>Lista de Alunos</h1>
+    <a href="{% url 'aluno-create' %}"> Cadastrar aluno</a>
     {% if aluno_list %}
-        <h1>Lista de Alunos</h1>
-        <a href="{% url 'aluno-create' %}"> Cadastrar aluno</a>
         <ul>
             {% for aluno in aluno_list %}
                 <li>
