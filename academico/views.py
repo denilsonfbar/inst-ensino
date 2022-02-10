@@ -34,19 +34,19 @@ class AlunoDetailView(generic.DetailView):
 
     model = Aluno
 
-class AlunoCreate(PermissionRequiredMixin, CreateView):
+class AlunoCreateView(PermissionRequiredMixin, CreateView):
     
     permission_required = 'academico.pode_manipular_aluno'
     model = Aluno
     fields = '__all__'
 
-class AlunoUpdate(PermissionRequiredMixin, UpdateView):
+class AlunoUpdateView(PermissionRequiredMixin, UpdateView):
 
     permission_required = 'academico.pode_manipular_aluno'
     model = Aluno
     fields = ['nome', 'cpf', 'data_nascimento']
 
-class AlunoDelete(PermissionRequiredMixin, DeleteView):
+class AlunoDeleteView(PermissionRequiredMixin, DeleteView):
 
     permission_required = 'academico.pode_manipular_aluno'
     model = Aluno
